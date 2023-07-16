@@ -99,6 +99,10 @@ public class Game implements Runnable{
         return player;
     }
 
+    public void windowLost() {
+        player.resetDirBoolean();
+    }
+
    /*static void chapterOneSequenceOne() {
        System.out.println("ADD THE STORY");
    }*/
