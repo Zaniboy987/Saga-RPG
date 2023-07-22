@@ -24,6 +24,7 @@ public class Game implements Runnable{
     public final static int GAME_WIDTH = TILES_SIZE * TILES_IN_WIDTH;
     public final static int GAME_HEIGHT = TILES_SIZE * TILES_IN_HEIGHT;
 
+
     public Game() {
         initClasses();
 
@@ -39,7 +40,7 @@ public class Game implements Runnable{
 
     private void initClasses() {
         levelManager = new LevelManager(this);
-        player = new Player(200, 200, 250, 250);
+        player = new Player(200, 200, (int) (64 * SCALE), (int) (40 * SCALE));
         player.loadLvlData(levelManager.getCurrentLevel().getLevelData());
     }
 
