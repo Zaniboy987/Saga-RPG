@@ -2,17 +2,8 @@ package entities;
 
 import Main.Game;
 import utils.LoadSave;
-
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.geom.Rectangle2D;
-import java.awt.image.AreaAveragingScaleFilter;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.spec.RSAPrivateKeySpec;
-
-import static utils.Constants.Directions.*;
 import static utils.Constants.PlayerConstants.*;
 import static utils.HelpMethods.*;
 
