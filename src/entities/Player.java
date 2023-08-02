@@ -141,7 +141,7 @@ public class Player extends Entity{
         if (CanMoveHere(hitbox.x + xSpeed,hitbox.y, hitbox.width, hitbox.height, lvData)) {
             hitbox.x += xSpeed;
         } else {
-            hitbox.x = getEntityXPosNextToAll(hitbox, xSpeed);
+            hitbox.x = GetEntityXPosNextToWall(hitbox, xSpeed);
         }
     }
 

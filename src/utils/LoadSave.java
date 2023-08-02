@@ -22,6 +22,9 @@ public class LoadSave {
     public static final String URM_BUTTONS = "urm_buttons.png";
     public static final String VOLUME_BUTTONS = "volume_buttons.png";
     public static final String MENU_BACKGROUND_IMG = "background_menu.png";
+    public static final String PLAYING_BG_IMG = "playing_bg_img.png";
+    public static final String BIG_CLOUDS = "big_clouds.png";
+    public static final String SMALL_CLOUDS = "small_clouds.png";
 
     public static BufferedImage GetSpriteAtlas(String filename) {
         BufferedImage img = null;
@@ -42,17 +45,17 @@ public class LoadSave {
 
     public static int[][] GetLevelData() {
         BufferedImage img = GetSpriteAtlas(LEVEL_ONE_DATA);
-        int[][] lvData = new int[img.getHeight()][img.getWidth()];
+        int[][] lvlData = new int[img.getHeight()][img.getWidth()];
 
-        for (int j = 0; j < img.getHeight(); j++) {
+        for (int j = 0; j < img.getHeight(); j++)
             for (int i = 0; i < img.getWidth(); i++) {
                 Color color = new Color(img.getRGB(i, j));
                 int value = color.getRed();
                 if (value >= 48)
                     value = 0;
-                lvData[j][i] = value;
+                lvlData[j][i] = value;
             }
-        }
-        return lvData;
+        return lvlData;
+
     }
 }

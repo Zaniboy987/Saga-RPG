@@ -1,16 +1,15 @@
 package utils;
 
 import Main.Game;
-
 import java.awt.geom.Rectangle2D;
 
 public class HelpMethods {
 
     public static boolean CanMoveHere(float x, float y, float width, float height, int[][] lvlData) {
-        if(!IsSolid(x,y, lvlData))
-            if(!IsSolid((x+width), (y+height), lvlData))
-                if(!IsSolid((x+width), y, lvlData))
-                    if(!IsSolid (x, (y+height), lvlData))
+        if (!IsSolid(x, y, lvlData))
+            if (!IsSolid(x + width, y + height, lvlData))
+                if (!IsSolid(x + width, y, lvlData))
+                    if (!IsSolid(x, y + height, lvlData))
                         return true;
         return false;
     }
@@ -21,7 +20,6 @@ public class HelpMethods {
             return true;
         if (y < 0 || y >= Game.GAME_HEIGHT)
             return true;
-
         float xIndex = x / Game.TILES_SIZE;
         float yIndex = y / Game.TILES_SIZE;
 
@@ -32,17 +30,16 @@ public class HelpMethods {
         return false;
     }
 
-    public static float getEntityXPosNextToAll(Rectangle2D.Float hitbox, float xSpeed) {
+    public static float GetEntityXPosNextToWall(Rectangle2D.Float hitbox, float xSpeed) {
         int currentTile = (int) (hitbox.x / Game.TILES_SIZE);
         if (xSpeed > 0) {
-            // going to right
+            // Right
             int tileXPos = currentTile * Game.TILES_SIZE;
-            int xOffset = (int)(Game.TILES_SIZE - hitbox.width);
+            int xOffset = (int) (Game.TILES_SIZE - hitbox.width);
             return tileXPos + xOffset - 1;
-        } else {
-            // going to left
+        } else
+            // Left
             return currentTile * Game.TILES_SIZE;
-        }
     }
 
     public static float GetEntityYPosUnderRoofOrAboveFloor(Rectangle2D.Float hitbox, float airSpeed) {
