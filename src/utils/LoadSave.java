@@ -1,12 +1,14 @@
 package utils;
 
 import Main.Game;
-
+import entities.Crabby;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import static utils.Constants.EnemyConstants.CRABBY;
 
 public class LoadSave {
 
@@ -43,6 +45,19 @@ public class LoadSave {
         return img;
     }
 
+    public static ArrayList<Crabby> GetCrabs() {
+        BufferedImage img = GetSpriteAtlas(LEVEL_ONE_DATA);
+        ArrayList<Crabby> list = new ArrayList<>();
+        for (int j = 0; j < img.getHeight(); j++)
+            for (int i = 0; i < img.getWidth(); i++) {
+                Color color = new Color(img.getRGB(i, j));
+                int value = color.getGreen();
+                if (value == CRABBY)
+                    list.add(new Crabby(i * Game.TILES_SIZE, j * Game.TILES_SIZE));
+            }
+        return list;
+    }
+
     public static int[][] GetLevelData() {
         BufferedImage img = GetSpriteAtlas(LEVEL_ONE_DATA);
         int[][] lvlData = new int[img.getHeight()][img.getWidth()];
@@ -56,6 +71,5 @@ public class LoadSave {
                 lvlData[j][i] = value;
             }
         return lvlData;
-
     }
 }
