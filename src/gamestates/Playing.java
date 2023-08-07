@@ -10,7 +10,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.Random;
-
 import static utils.Constants.Environment.*;
 
 public class Playing extends State implements Statemethods {
