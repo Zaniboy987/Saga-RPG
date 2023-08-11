@@ -140,7 +140,7 @@ public class Game implements Runnable{
 
     public void windowLost() {
         if (Gamestate.state == Gamestate.PLAYING)
-            playing.getPlayer().resetDirBoolean();
+            playing.getPlayer().resetDirBooleans();
     }
 
     public Menu getMenu() {
